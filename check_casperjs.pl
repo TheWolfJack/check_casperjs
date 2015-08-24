@@ -62,7 +62,9 @@ This plugin needs casperjs and phantomjs
 
 Usage: 
 check_casperjs.pl -w WARNING -c CRITICAL -t tests/simple_example.js
-check_casperjs.pl --warning 50000 --critical 60000 --testcase tests/wordpress_backend.js --url http://my_wordpress_blog.example.org -o user=testuser -o pass=SecretPassword
+# Changed to seconds
+#check_casperjs.pl --warning 50000 --critical 60000 --testcase tests/wordpress_backend.js --url http://my_wordpress_blog.example.org -o user=testuser -o pass=SecretPassword
+check_casperjs.pl --warning 5 --critical 10 --testcase tests/wordpress_backend.js --url http://my_wordpress_blog.example.org -o user=testuser -o pass=SecretPassword
 
 =head1 OPTIONS
 
