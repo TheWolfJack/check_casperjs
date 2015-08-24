@@ -70,11 +70,15 @@ check_casperjs.pl --warning 50000 --critical 60000 --testcase tests/wordpress_ba
 
 =item -c|--critical
 
-critical threshold in ms for overall duration
+# Change to seconds
+#critical threshold in ms for overall duration
+critical threshold in seconds for overall duration
 
 =item -w|--warning
 
-warning threshold in ms for overall duration
+# Change to seconds
+#warning threshold in ms for overall duration
+warning threshold in seconds for overall duration
 
 =item -o|--casperjs-options
 
@@ -233,9 +237,10 @@ $casper_opts .= " $basedir/lib/lib_url.js --url=$opt_url" if defined $opt_url;
 #  MAIN
 #*************************************************************************************************
 
+# Commenting out to keep in seconds. -AJL
 # convert ms to s
-$opt_warning  /= 1000;
-$opt_critical /= 1000;
+#$opt_warning  /= 1000;
+#$opt_critical /= 1000;
 
 #call casperjs
 print "CALL: casperjs test --pre=$basedir/lib/lib_default.js $casper_opts $basedir/$opt_testcase\n" if defined $opt_verbose;
@@ -299,7 +304,9 @@ if ( $$ref{'time'} > $opt_warning && $out_state != 2 ) {
   $out_text = "Service timed out\n$out_text";
 }
 
+# Change the output formatting
 # Print and Exit
-print "$state_names{$out_state} - $out_text|$perfdata\n";
+#print "$state_names{$out_state} - $out_text|$perfdata\n";
+print "Synthetic Transaction check $state_names{$out_state} - total time taken = $$ref{'time'}s|\n$out_text";
 
 exit $out_state;
