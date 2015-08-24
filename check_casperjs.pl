@@ -248,7 +248,7 @@ $casper_opts .= " $basedir/lib/lib_url.js --url=$opt_url" if defined $opt_url;
 #call casperjs
 #print "CALL: casperjs test --pre=$basedir/lib/lib_default.js $casper_opts $basedir/$opt_testcase\n" if defined $opt_verbose;
 print "CALL: casperjs test --pre=$basedir/lib/lib_default.js $casper_opts $opt_testcase\n" if defined $opt_verbose;
-my @casper_in = `casperjs test --pre=$basedir/lib/lib_default.js $casper_opts $basedir/$opt_testcase`;
+my @casper_in = `casperjs test --pre=$basedir/lib/lib_default.js $casper_opts $opt_testcase`;
 
 print @casper_in if defined $opt_verbose;
 
